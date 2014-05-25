@@ -2,28 +2,29 @@
 <ivy-module version="2.0"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
-    <info organisation="org.movealong" module="guice-stripes" revision="0.0.5"/>
+    <info organisation="org.movealong" module="guice-stripes" revision="1.0.0"/>
 
     <configurations>
         <conf name="default" extends="runtime" description="Distributed artifacts"/>
         <conf name="compile" description="Libraries that the source code depends on for compilation"/>
         <conf name="runtime" description="Libraries that are required as dependencies at runtime"/>
         <conf name="sources" description="Source code for the library"/>
-        <conf name="javadoc" description="Documentation for the library"/>
+        <conf name="doc" description="Documentation for the library"/>
         <conf name="test" description="Libraries that are required to compile/run the test suite"/>
         <conf name="build" description="Cobertura and its dependencies"/>
     </configurations>
 
     <publications>
         <artifact name="guice-stripes" type="jar" ext="jar" conf="default"/>
-        <artifact name="guice-stripes-source" type="source" ext="jar" conf="sources"/>
-        <artifact name="guice-stripes-src" ext="tar.gz" conf="build"/>
-        <artifact name="guice-stripes-src" ext="zip" conf="build"/>
+        <artifact name="guice-stripes" type="pom" ext="xml" conf="sources"/>
+        <artifact name="guice-stripes" type="source" ext="jar" conf="sources"/>
+        <artifact name="guice-stripes" type="source" ext="tar.gz" conf="build"/>
+        <artifact name="guice-stripes" type="source" ext="zip" conf="build"/>
     </publications>
 
     <dependencies>
-        <dependency org="com.google.inject" name="guice" rev="2.0" conf="runtime->default"/>
-        <dependency org="net.sourceforge.stripes" name="stripes" rev="1.5.6" conf="runtime->default">
+        <dependency org="com.google.inject" name="guice" rev="3.0" conf="runtime->default"/>
+        <dependency org="net.sourceforge.stripes" name="stripes" rev="1.5.7" conf="runtime->default">
             <exclude org="javax.mail" name="mail"/>
             <exclude org="javax.resource" name="connector"/>
         </dependency>
